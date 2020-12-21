@@ -10,19 +10,21 @@ namespace Djeg.Prometheus.Motion
      * </summary>
      */
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(MoveMotion))]
     public class AerialMovementMotion : MonoBehaviour
     {
         # region Properties
 
         [SerializeField]
-        private float _force = .7f;
+        private float _multiplier = .25f;
 
-        [SerializeField]
-        private float _maxVelocity = .8f;
+        private float _speed = 0f;
+
+        private MovementDirection _initialDirection = MovementDirection.Right;
 
         private Rigidbody2D _body = null;
 
-        private float _direction = 0f;
+        private MoveMotion _movement = null;
 
         # endregion
 
@@ -36,29 +38,39 @@ namespace Djeg.Prometheus.Motion
 
         private void Awake()
         {
-            _body = GetComponent<Rigidbody2D>();
+            _body     = GetComponent<Rigidbody2D>();
+            _movement = GetComponent<MoveMotion>();
+        }
+
+        private void OnEnable()
+        {
+            _speed            = _movement.Speed;
+            _initialDirection = _movement.Direction;
+
+            Debug.Log(_body.velocity.x);
         }
 
         private void FixedUpdate()
         {
-            if (Mathf.Abs(_direction) < .5f)
-                return;
+            float direction   = _movement.Movement.x;
+            float maxVelocity = _initialDirection == MovementDirection.Left
+                ? -(_speed * Time.deltaTime)
+                : _speed  * Time.deltaTime;
+            float newVelocity = _body.velocity.x + (direction * _multiplier);
 
-            _body.AddForce(new Vector2(
-                _direction * _force,
-                0
-            ), ForceMode2D.Impulse);
+            if (
+                (_initialDirection == MovementDirection.Right && newVelocity < 0)
+                || (_initialDirection == MovementDirection.Left && newVelocity > 0)
+            )
+                newVelocity = 0;
 
-            if (Mathf.Abs(_body.velocity.x) > _maxVelocity)
-                _body.velocity = new Vector2(
-                    _body.velocity.x < 0 ? -_maxVelocity : _maxVelocity,
-                    _body.velocity.y
-                );
-        }
+            if (Mathf.Abs(newVelocity) > Mathf.Abs(maxVelocity))
+                newVelocity = maxVelocity;
 
-        private void OnMove(InputValue input)
-        {
-            _direction = input.Get<Vector2>().x;
+            _body.velocity = new Vector2(
+                newVelocity,
+                _body.velocity.y
+            );
         }
 
         # endregion

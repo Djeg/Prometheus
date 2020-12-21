@@ -5,11 +5,9 @@ using UnityEngine.InputSystem;
 
 namespace Djeg.Prometheus.Motion
 {
-    /**
-     * <summary>
-     * Control the ability of a game object to move.
-     * </summary>
-     */
+    /// <summary>
+    /// Control the ability of a game object to move.
+    /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     public class MoveMotion : MonoBehaviour, IMovableMotion
     {
@@ -31,6 +29,12 @@ namespace Djeg.Prometheus.Motion
         [SerializeField]
         [Tooltip("The smooth time when Algorithm is on Smoothing")]
         private float _smoothTime = 0.25f;
+
+        [SerializeField]
+        [Tooltip("Keep the velocity when this component is disabled")]
+        private bool _keepVelocityOnDisabled = false;
+
+        [Space(20)]
 
         [SerializeField]
         [Header("Events")]
@@ -66,6 +70,12 @@ namespace Djeg.Prometheus.Motion
         {
             get => _speed;
             set => _speed = value;
+        }
+
+        public bool KeepVelocityOnDisabled
+        {
+            get => _keepVelocityOnDisabled;
+            set => _keepVelocityOnDisabled = value;
         }
 
         public MovementAlgorithm Algorithm
@@ -148,6 +158,9 @@ namespace Djeg.Prometheus.Motion
 
         private void OnDisable()
         {
+            if (_keepVelocityOnDisabled)
+                return;
+
             _body.velocity = new Vector2(0, _body.velocity.y);
         }
 
@@ -197,7 +210,7 @@ namespace Djeg.Prometheus.Motion
             );
         }
 
-        private void OnMove(InputValue input)
+        private void OnMoveInput(InputValue input)
         {
             Movement = input.Get<Vector2>();
         }

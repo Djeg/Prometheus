@@ -56,7 +56,7 @@ namespace Djeg.Prometheus.Nysa
         {
             _animator.SetFloat(_movementParameterName, Mathf.Abs(_movement.Movement.x));
         }
-        
+
         private void HandleDirectionChanged()
         {
             _animator.SetTrigger(_rotateParameterName);

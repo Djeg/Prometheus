@@ -511,7 +511,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7766991, y: 1}
+    m_SensorSize: {x: 1.7756411, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1171,6 +1171,7 @@ MonoBehaviour:
   _isAerial: 0
   _algorithm: 1
   _smoothTime: 0.15
+  _keepVelocityOnDisabled: 1
   _onDirectionChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1330,8 +1331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfee7f088f9816e40b0026fd2efefc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 5
-  _maxVelocity: 30
 --- !u!1 &1130442711
 GameObject:
   m_ObjectHideFlags: 0

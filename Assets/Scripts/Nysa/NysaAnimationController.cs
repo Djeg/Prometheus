@@ -57,6 +57,7 @@ namespace Djeg.Prometheus.Nysa
         private void OnEnable()
         {
             _aerialMovement.enabled = false;
+            _move.KeepVelocityOnDisabled = true;
 
             _move.OnAfterMoving.AddListener(UpdateMovement);
             _jump.OnJump.AddListener(StartJumping);
@@ -78,6 +79,7 @@ namespace Djeg.Prometheus.Nysa
         {
             _move.enabled = false;
             _aerialMovement.enabled = true;
+
             _animator.SetTrigger(_jumpParameterName);
             _animator.SetBool(_jumpingParameterName, true);
         }
@@ -91,6 +93,7 @@ namespace Djeg.Prometheus.Nysa
         {
             _move.enabled = true;
             _aerialMovement.enabled = false;
+
             _animator.SetBool(_jumpingParameterName, false);
             _animator.SetBool(_fallingParameterName, false);
         }
