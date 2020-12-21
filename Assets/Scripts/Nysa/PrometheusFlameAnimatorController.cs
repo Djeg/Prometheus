@@ -9,7 +9,7 @@ namespace Djeg.Prometheus.Nysa
      * Control the prometheus flame animator
      * </summary>
      */
-    [RequireComponent(typeof(IMovableMotion))]
+    [RequireComponent(typeof(FollowMotion))]
     [RequireComponent(typeof(Animator))]
     public class PrometheusFlameAnimatorController : MonoBehaviour
     {
@@ -21,9 +21,18 @@ namespace Djeg.Prometheus.Nysa
         [SerializeField]
         private string _rotateParameterName = "Rotate";
 
+        [SerializeField]
+        private string _dragParameterName = "Drag";
+
+        [SerializeField]
+        private string _dragingParameterName = "Draging";
+
+        [SerializeField]
+        private string _undragParameterName = "Undrag";
+
         private Animator _animator = null;
 
-        private IMovableMotion _movement = null;
+        private FollowMotion _movement = null;
 
         # endregion
 
@@ -37,7 +46,7 @@ namespace Djeg.Prometheus.Nysa
 
         private void Awake()
         {
-            _movement = GetComponent<IMovableMotion>();
+            _movement = GetComponent<FollowMotion>();
             _animator = GetComponent<Animator>();
         }
 
@@ -45,11 +54,24 @@ namespace Djeg.Prometheus.Nysa
         {
             _movement.OnAfterMoving.AddListener(HandleMovement);
             _movement.OnDirectionChanged.AddListener(HandleDirectionChanged);
+
+            DragMotion drag = _movement.Subject.GetComponent<DragMotion>();
+
+            drag.OnDrag.AddListener(StartDrag);
+            drag.OnDragJump.AddListener(StopDrag);
+            drag.OnDragFall.AddListener(StopDrag);
         }
 
         private void OnDisable()
         {
             _movement.OnAfterMoving.RemoveListener(HandleMovement);
+            _movement.OnDirectionChanged.RemoveListener(HandleDirectionChanged);
+
+            DragMotion drag = _movement.Subject.GetComponent<DragMotion>();
+
+            drag.OnDrag.RemoveListener(StartDrag);
+            drag.OnDragJump.RemoveListener(StopDrag);
+            drag.OnDragFall.RemoveListener(StopDrag);
         }
 
         private void HandleMovement()
@@ -60,6 +82,18 @@ namespace Djeg.Prometheus.Nysa
         private void HandleDirectionChanged()
         {
             _animator.SetTrigger(_rotateParameterName);
+        }
+
+        private void StartDrag()
+        {
+            _animator.SetTrigger(_dragParameterName);
+            _animator.SetBool(_dragingParameterName, true);
+        }
+
+        private void StopDrag()
+        {
+            _animator.SetTrigger(_undragParameterName);
+            _animator.SetBool(_dragingParameterName, false);
         }
 
         # endregion

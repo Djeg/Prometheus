@@ -21,6 +21,13 @@ namespace Djeg.Prometheus.Motion
         # endregion
 
         # region PropertyAccessors
+
+        public bool Manual
+        {
+            get => _manual;
+            set => _manual = value;
+        }
+
         # endregion
 
         # region PublicMethods

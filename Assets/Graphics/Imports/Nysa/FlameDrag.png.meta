@@ -50,6 +50,54 @@ TextureImporter:
   - first:
       213: 4989048872612032640
     second: FlameDrag_15
+  - first:
+      213: 3860813735750294320
+    second: FlameDrag_0
+  - first:
+      213: -5458768132038319704
+    second: FlameDrag_1
+  - first:
+      213: 6850531271242443742
+    second: FlameDrag_2
+  - first:
+      213: 7101525297880258495
+    second: FlameDrag_3
+  - first:
+      213: 354531028791292401
+    second: FlameDrag_4
+  - first:
+      213: 6031319692285821583
+    second: FlameDrag_5
+  - first:
+      213: -8556775828809486996
+    second: FlameDrag_6
+  - first:
+      213: 2627763228532833006
+    second: FlameDrag_7
+  - first:
+      213: 1993657204170981048
+    second: FlameDrag_8
+  - first:
+      213: -4975359840697404219
+    second: FlameDrag_9
+  - first:
+      213: 7493990158703319322
+    second: FlameDrag_10
+  - first:
+      213: 3946103131858270148
+    second: FlameDrag_11
+  - first:
+      213: 6861343065455828449
+    second: FlameDrag_12
+  - first:
+      213: 3939515139007157592
+    second: FlameDrag_13
+  - first:
+      213: -597496984345380245
+    second: FlameDrag_14
+  - first:
+      213: -8364775860646833379
+    second: FlameDrag_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,18 +187,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
+        y: 96
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da8e88ecfd7db8c60800000000000000
-      internalID: 7821582534101756077
+      spriteID: 03b585f13ad549530800000000000000
+      internalID: 3860813735750294320
       vertices: []
       indices: 
       edges: []
@@ -160,18 +208,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 48
+        y: 96
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9182b6f2863962aa0800000000000000
-      internalID: -6186094962465363943
+      spriteID: 8a122a24e4f8e34b0800000000000000
+      internalID: -5458768132038319704
       vertices: []
       indices: 
       edges: []
@@ -181,18 +229,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 48
+        y: 96
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe8c5ba1c24035600800000000000000
-      internalID: 455712574767745263
+      spriteID: edb6c1145e9f11f50800000000000000
+      internalID: 6850531271242443742
       vertices: []
       indices: 
       edges: []
@@ -202,18 +250,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 48
+        y: 96
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25d28dc3d466ea0a0800000000000000
-      internalID: -6868439899774112430
+      spriteID: fb75a9702afad8260800000000000000
+      internalID: 7101525297880258495
       vertices: []
       indices: 
       edges: []
@@ -222,19 +270,19 @@ TextureImporter:
       name: FlameDrag_4
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 48
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e15ee972edfcfe10800000000000000
-      internalID: 2232938664419021286
+      spriteID: 1f175f0a71c8be400800000000000000
+      internalID: 354531028791292401
       vertices: []
       indices: 
       edges: []
@@ -243,19 +291,19 @@ TextureImporter:
       name: FlameDrag_5
       rect:
         serializedVersion: 2
-        x: 240
+        x: 48
         y: 48
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2429a8ccbcc64d2f0800000000000000
-      internalID: -949013998902537662
+      spriteID: f82c3890e4d83b350800000000000000
+      internalID: 6031319692285821583
       vertices: []
       indices: 
       edges: []
@@ -264,19 +312,19 @@ TextureImporter:
       name: FlameDrag_6
       rect:
         serializedVersion: 2
-        x: 288
+        x: 96
         y: 48
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a599521f409a0eae0800000000000000
-      internalID: -1522030835360491174
+      spriteID: c6d692d28b9304980800000000000000
+      internalID: -8556775828809486996
       vertices: []
       indices: 
       edges: []
@@ -285,19 +333,19 @@ TextureImporter:
       name: FlameDrag_7
       rect:
         serializedVersion: 2
-        x: 336
+        x: 144
         y: 48
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2210a6bdd7916000800000000000000
-      internalID: 27470051248443950
+      spriteID: eea788edbb0b77420800000000000000
+      internalID: 2627763228532833006
       vertices: []
       indices: 
       edges: []
@@ -306,19 +354,19 @@ TextureImporter:
       name: FlameDrag_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 192
+        y: 48
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92fdb329f9d10ef80800000000000000
-      internalID: -8079425160312266967
+      spriteID: 8be72821aa4eaab10800000000000000
+      internalID: 1993657204170981048
       vertices: []
       indices: 
       edges: []
@@ -327,19 +375,19 @@ TextureImporter:
       name: FlameDrag_9
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
+        x: 240
+        y: 48
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eedaa42ef00c461f0800000000000000
-      internalID: -1052505238444266002
+      spriteID: 5c4bc71e598f3fab0800000000000000
+      internalID: -4975359840697404219
       vertices: []
       indices: 
       edges: []
@@ -348,19 +396,19 @@ TextureImporter:
       name: FlameDrag_10
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 288
+        y: 48
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9c17ca171e0482a0800000000000000
-      internalID: -6736243650243126118
+      spriteID: a19d8cf2850000860800000000000000
+      internalID: 7493990158703319322
       vertices: []
       indices: 
       edges: []
@@ -369,19 +417,19 @@ TextureImporter:
       name: FlameDrag_11
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
+        x: 336
+        y: 48
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f58b698c2655cc250800000000000000
-      internalID: 5966237489119541343
+      spriteID: 4c7f77d14ef53c630800000000000000
+      internalID: 3946103131858270148
       vertices: []
       indices: 
       edges: []
@@ -390,19 +438,19 @@ TextureImporter:
       name: FlameDrag_12
       rect:
         serializedVersion: 2
-        x: 192
+        x: 0
         y: 0
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bccef3233faf2570800000000000000
-      internalID: 8444160460525063349
+      spriteID: 1ed95924a23683f50800000000000000
+      internalID: 6861343065455828449
       vertices: []
       indices: 
       edges: []
@@ -411,19 +459,19 @@ TextureImporter:
       name: FlameDrag_13
       rect:
         serializedVersion: 2
-        x: 240
+        x: 48
         y: 0
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5e10cf772b81dba0800000000000000
-      internalID: -6065914221328064933
+      spriteID: 8559bcf7528fba630800000000000000
+      internalID: 3939515139007157592
       vertices: []
       indices: 
       edges: []
@@ -432,19 +480,19 @@ TextureImporter:
       name: FlameDrag_14
       rect:
         serializedVersion: 2
-        x: 288
+        x: 96
         y: 0
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7eda71633eb29110800000000000000
-      internalID: 1266283573132582525
+      spriteID: b6af9bd88a345b7f0800000000000000
+      internalID: -597496984345380245
       vertices: []
       indices: 
       edges: []
@@ -453,19 +501,19 @@ TextureImporter:
       name: FlameDrag_15
       rect:
         serializedVersion: 2
-        x: 336
+        x: 144
         y: 0
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0807a1b3489ac3540800000000000000
-      internalID: 4989048872612032640
+      spriteID: d1312685ca85aeb80800000000000000
+      internalID: -8364775860646833379
       vertices: []
       indices: 
       edges: []

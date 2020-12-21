@@ -42,6 +42,8 @@ namespace Djeg.Prometheus.Motion
 
         # region PropertyAccessors
 
+        public GameObject Subject { get => _subject; }
+
         public float Speed
         {
             get => _subjectMovement.Speed;

@@ -11,6 +11,7 @@ namespace Djeg.Prometheus.Motion
      */
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(MoveMotion))]
+    [RequireComponent(typeof(JumpMotion))]
     public class AerialMovementMotion : MonoBehaviour
     {
         # region Properties
@@ -26,6 +27,8 @@ namespace Djeg.Prometheus.Motion
 
         private MoveMotion _movement = null;
 
+        private JumpMotion _jump = null;
+
         # endregion
 
         # region PropertyAccessors
@@ -40,14 +43,22 @@ namespace Djeg.Prometheus.Motion
         {
             _body     = GetComponent<Rigidbody2D>();
             _movement = GetComponent<MoveMotion>();
+            _jump     = GetComponent<JumpMotion>();
+
+            _jump.OnJump.AddListener(SelfEnable);
+            _jump.OnLand.AddListener(SelfDisable);
+        }
+
+        private void OnDestroy()
+        {
+            _jump.OnJump.RemoveListener(SelfEnable);
+            _jump.OnLand.RemoveListener(SelfDisable);
         }
 
         private void OnEnable()
         {
             _speed            = _movement.Speed;
             _initialDirection = _movement.Direction;
-
-            Debug.Log(_body.velocity.x);
         }
 
         private void FixedUpdate()
@@ -71,6 +82,16 @@ namespace Djeg.Prometheus.Motion
                 newVelocity,
                 _body.velocity.y
             );
+        }
+
+        private void SelfEnable()
+        {
+            enabled = true;
+        }
+
+        private void SelfDisable()
+        {
+            enabled = false;
         }
 
         # endregion

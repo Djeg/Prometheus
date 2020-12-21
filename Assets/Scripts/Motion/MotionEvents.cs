@@ -51,4 +51,19 @@ namespace Djeg.Prometheus.Motion
     public sealed class OnAfterJumpingEvent : UnityEvent
     {
     }
+
+    [System.Serializable]
+    public sealed class OnDragEvent : UnityEvent
+    {
+    }
+
+    [System.Serializable]
+    public sealed class OnDragJumpEvent : UnityEvent
+    {
+    }
+
+    [System.Serializable]
+    public sealed class OnDragFallEvent : UnityEvent
+    {
+    }
 }

@@ -10,6 +10,7 @@ namespace Djeg.Prometheus.Motion
      * </summary>
      */
     [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(MoveMotion))]
     public class JumpMotion : MonoBehaviour
     {
         # region Properties
@@ -62,9 +63,20 @@ namespace Djeg.Prometheus.Motion
 
         private Rigidbody2D _body = null;
 
+        private MoveMotion _movement = null;
+
         # endregion
 
         # region PropertyAccessors
+
+        public float Force { get => _force; }
+        public bool IsJumping { get => _jumping; }
+        public bool IsFalling { get => _falling; }
+        public bool AllowAerialJump
+        {
+            get => _allowAerialJump;
+            set => _allowAerialJump = value;
+        }
 
         public OnJumpEvent OnJump { get => _onJump; }
         public OnFallEvent OnFall { get => _onFall; }
@@ -82,11 +94,21 @@ namespace Djeg.Prometheus.Motion
         private void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
+            _movement = GetComponent<MoveMotion>();
         }
 
         private void OnEnable()
         {
             _previousY = transform.position.y;
+
+            OnJump.AddListener(DisableMovement);
+            OnLand.AddListener(EnableMovement);
+        }
+
+        private void OnDisable()
+        {
+            OnJump.RemoveListener(DisableMovement);
+            OnLand.RemoveListener(EnableMovement);
         }
 
         private void FixedUpdate()
@@ -117,6 +139,7 @@ namespace Djeg.Prometheus.Motion
             bool trigger = (!_falling && _requestJump) || (_requestJump && _allowAerialJump);
 
             _requestJump = false;
+            _allowAerialJump = false;
 
             if (trigger)
                 OnBeforeJumping.Invoke();
@@ -180,7 +203,19 @@ namespace Djeg.Prometheus.Motion
 
         private void OnJumpInputStop(InputValue input)
         {
+            _requestJump = false;
             _holdingJump = false;
+        }
+
+        private void DisableMovement()
+        {
+            _movement.KeepVelocityOnDisabled = true;
+            _movement.enabled = false;
+        }
+
+        private void EnableMovement()
+        {
+            _movement.enabled = true;
         }
 
         # endregion

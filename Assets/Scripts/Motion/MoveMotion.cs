@@ -52,6 +52,8 @@ namespace Djeg.Prometheus.Motion
         [SerializeField]
         private OnAfterMovingEvent _OnAfterMoving = new OnAfterMovingEvent();
 
+        private bool _isLocked = false;
+
         private float _lookDirection = 1f;
 
         private Vector2 _movement = Vector2.zero;
@@ -70,6 +72,12 @@ namespace Djeg.Prometheus.Motion
         {
             get => _speed;
             set => _speed = value;
+        }
+
+        public bool IsLocked
+        {
+            get => _isLocked;
+            set => _isLocked = value;
         }
 
         public bool KeepVelocityOnDisabled
@@ -97,6 +105,9 @@ namespace Djeg.Prometheus.Motion
             set
             {
                 _movement = new Vector2(value.x, value.y);
+
+                if (_isLocked)
+                    return;
 
                 Vector2 normalized = new Vector2(
                     value.normalized.x == 0 ? 0 : value.normalized.x > 0 ? 1 : -1,
@@ -147,6 +158,19 @@ namespace Djeg.Prometheus.Motion
 
         # region PublicMethods
 
+        /// <summary>
+        /// Reset the movement to there initial values
+        /// </summary>
+        public void Reset()
+        {
+            _movement = Vector2.zero;
+            _body.velocity = new Vector2(0, _body.velocity.y);
+
+            OnMovementStop.Invoke();
+            OnBeforeMoving.Invoke();
+            OnAfterMoving.Invoke();
+        }
+
         # endregion
 
         # region PrivateMethods
@@ -161,7 +185,7 @@ namespace Djeg.Prometheus.Motion
             if (_keepVelocityOnDisabled)
                 return;
 
-            _body.velocity = new Vector2(0, _body.velocity.y);
+            Reset();
         }
 
         private void OnEnable()
