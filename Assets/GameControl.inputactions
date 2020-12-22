@@ -14,36 +14,12 @@
                     "interactions": ""
                 },
                 {
-                    "name": "JumpInputStart",
+                    "name": "JumpInput",
                     "type": "Button",
                     "id": "fb563e18-27cb-4a8c-a4b1-4516463324d7",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
-                },
-                {
-                    "name": "JumpInputStop",
-                    "type": "Button",
-                    "id": "070c3208-a11b-4d96-8001-45c81a2d5604",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=1)"
-                },
-                {
-                    "name": "CancelInputStart",
-                    "type": "Button",
-                    "id": "08d2d66b-4379-4708-839b-92c565f6f33e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press"
-                },
-                {
-                    "name": "CancelInputStop",
-                    "type": "Button",
-                    "id": "17229e7a-4b50-4d4b-be74-c01602b2c76c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=1)"
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -109,40 +85,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "JumpInputStart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9e66c8b1-a6d5-4256-9ebb-462d2d29f797",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "JumpInputStop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5c116d0a-b9e5-4a9f-a760-0fe96244b45c",
-                    "path": "<Keyboard>/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CancelInputStart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f04b48cd-1f79-4beb-b795-a7b9488725ce",
-                    "path": "<Keyboard>/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CancelInputStop",
+                    "action": "JumpInput",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -511,7 +511,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7782608, y: 1}
+    m_SensorSize: {x: 1.7761194, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -773,9 +773,6 @@ GameObject:
   - component: {fileID: 644467818}
   - component: {fileID: 644467817}
   - component: {fileID: 644467820}
-  - component: {fileID: 644467819}
-  - component: {fileID: 644467821}
-  - component: {fileID: 644467822}
   m_Layer: 0
   m_Name: Flame
   m_TagString: Untagged
@@ -867,34 +864,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &644467819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644467815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350619a822b78fa36a3b0125a9032de1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _subject: {fileID: 898116849}
-  _onDirectionChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onMovementStart:
-    m_PersistentCalls:
-      m_Calls: []
-  _onMovementStop:
-    m_PersistentCalls:
-      m_Calls: []
-  _onBeforeMoving:
-    m_PersistentCalls:
-      m_Calls: []
-  _onAfterMoving:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!50 &644467820
 Rigidbody2D:
   serializedVersion: 4
@@ -916,36 +885,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &644467821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644467815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c42088597b7c6154884a324884323eb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _manual: 1
---- !u!114 &644467822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644467815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b65058367a82f328f92422caf552682f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movementParameterName: Movement
-  _rotateParameterName: Rotate
-  _dragParameterName: Drag
-  _dragingParameterName: Draging
-  _undragParameterName: Undrag
 --- !u!1 &733856462
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,8 +926,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 811551070}
+  - component: {fileID: 811551071}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1008,6 +948,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &811551071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811551069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a3bff5c24d2cd362889c6dfc21ee3aae,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 898116862}
+        m_MethodName: UpdateMoveDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 93f884e3-40f2-4314-b224-ebcf3d255eb8
+    m_ActionName: Plateformer2D/MoveInput[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 898116862}
+        m_MethodName: UpdateJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fb563e18-27cb-4a8c-a4b1-4516463324d7
+    m_ActionName: Plateformer2D/JumpInputStart[/Keyboard/space]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Plateformer2D
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &862304666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,12 +1095,7 @@ GameObject:
   - component: {fileID: 898116856}
   - component: {fileID: 898116855}
   - component: {fileID: 898116854}
-  - component: {fileID: 898116853}
-  - component: {fileID: 898116857}
-  - component: {fileID: 898116859}
-  - component: {fileID: 898116860}
-  - component: {fileID: 898116861}
-  - component: {fileID: 898116858}
+  - component: {fileID: 898116862}
   m_Layer: 0
   m_Name: Nysa
   m_TagString: Untagged
@@ -1193,38 +1189,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &898116853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898116849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1534c5bc8c338e6e8e0bbd27852b06c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 360
-  _isAerial: 0
-  _algorithm: 1
-  _smoothTime: 0.15
-  _keepVelocityOnDisabled: 1
-  _onDirectionChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  _onMovementStart:
-    m_PersistentCalls:
-      m_Calls: []
-  _onMovementStop:
-    m_PersistentCalls:
-      m_Calls: []
-  _OnBeforeMoving:
-    m_PersistentCalls:
-      m_Calls: []
-  _OnAfterMoving:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!70 &898116854
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1293,7 +1257,7 @@ MonoBehaviour:
   m_DefaultActionMap: Plateformer2D
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &898116857
+--- !u!114 &898116862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1302,107 +1266,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 898116849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c42088597b7c6154884a324884323eb6, type: 3}
+  m_Script: {fileID: 11500000, guid: df0c4063fb1cdb46abc539e194d9e368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _manual: 0
---- !u!114 &898116858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898116849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6123e2daa33d1f1c8b904892f95e62a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movementParameterName: Movement
-  _jumpingParameterName: Jumping
-  _jumpParameterName: Jump
-  _fallingParameterName: Falling
-  _fallParameterName: Fall
-  _dragParameterName: Drag
-  _dragingParameterName: Draging
---- !u!114 &898116859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898116849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44e3a8f92e2aca91d9fe24f6a21531d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _force: 16
-  _decreaseModifer: 0.5
-  _whatIsGround:
-    serializedVersion: 2
-    m_Bits: 512
-  _raycastLength: 1.53
-  _debugColor: {r: 1, g: 0.7391078, b: 0, a: 1}
-  _allowAerialJump: 0
-  _onJump:
-    m_PersistentCalls:
-      m_Calls: []
-  _onFall:
-    m_PersistentCalls:
-      m_Calls: []
-  _onLand:
-    m_PersistentCalls:
-      m_Calls: []
-  _onBeforeJumping:
-    m_PersistentCalls:
-      m_Calls: []
-  _onAfterJumping:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &898116860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898116849}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfee7f088f9816e40b0026fd2efefc3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _multiplier: 0.5
---- !u!114 &898116861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898116849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d75f790cbd07d036b36a675f53a9e8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dragDetectorUp: {fileID: 1693575882}
-  _dragDetectorDown: {fileID: 1471840505}
-  _whatIsWall:
-    serializedVersion: 2
-    m_Bits: 512
-  _releaseForce: 45
-  _jumpForce: 80
-  _limit: -0.5
-  _debugColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  _onDrag:
-    m_PersistentCalls:
-      m_Calls: []
-  _onDragJump:
-    m_PersistentCalls:
-      m_Calls: []
-  _onDragFall:
-    m_PersistentCalls:
-      m_Calls: []
+  move:
+    speed: 280
+    direction: 0
+  jump:
+    force: 18
+    isJumping: 0
+    isFalling: 0
+    isPressed: 0
+    isHolding: 0
+    raycastLength: 1.55
+    whatIsGround:
+      serializedVersion: 2
+      m_Bits: 512
+    debugColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1130442711
 GameObject:
   m_ObjectHideFlags: 0
