@@ -10,14 +10,14 @@ namespace Djeg.Prometheus.Component.Motion
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Animator))]
-    public class Move : MonoBehaviour
+    public class SmoothMove : MonoBehaviour
     {
         # region PublicAttributes
 
         /// <summary>
-        /// The move data
+        /// The parameter
         /// </summary>
-        public Data.Motion.Move.Parameter Parameter = new Data.Motion.Move.Parameter();
+        public Data.Motion.SmoothMove.Parameter Parameter = new Data.Motion.SmoothMove.Parameter();
 
         /// <summary>
         /// The feature
@@ -58,6 +58,12 @@ namespace Djeg.Prometheus.Component.Motion
         /// Store a boolean to know if the object has just been mooving
         /// </summary>
         private bool _hasMove = false;
+
+        /// <summary>
+        /// A reference of the smooth velocity used by the SmoothDamp
+        /// algorithm
+        /// </summary>
+        private Vector2 _velocity = Vector2.zero;
 
         # endregion
 
@@ -103,7 +109,7 @@ namespace Djeg.Prometheus.Component.Motion
         /// </summary>
         public void Awake()
         {
-            _body = GetComponent<Rigidbody2D>();
+            _body     = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
         }
 
@@ -112,8 +118,9 @@ namespace Djeg.Prometheus.Component.Motion
         /// </summary>
         public void OnEnable()
         {
-            _hasStop = false;
-            _hasMove = false;
+            _velocity         = _body.velocity;
+            _hasStop          = false;
+            _hasMove          = false;
         }
 
         /// <summary>
@@ -134,9 +141,14 @@ namespace Djeg.Prometheus.Component.Motion
             Event.OnBeforeMoving.Invoke();
 
             // Move the object using the velocity
-            _body.velocity = new Vector2(
-                Parameter.Speed * Parameter.Direction * Time.deltaTime,
-                _body.velocity.y
+            _body.velocity = Vector2.SmoothDamp(
+                _body.velocity,
+                new Vector2(
+                    Parameter.Speed * Parameter.Direction * Time.deltaTime,
+                    _body.velocity.y
+                ),
+                ref _velocity,
+                Parameter.SmoothTime
             );
 
             // Detect if the object has stop

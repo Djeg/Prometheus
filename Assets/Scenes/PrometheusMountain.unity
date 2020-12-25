@@ -511,7 +511,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7761194, y: 1}
+    m_SensorSize: {x: 1.7786885, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -987,6 +987,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 898116857}
+        m_MethodName: UpdateMoveDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 93f884e3-40f2-4314-b224-ebcf3d255eb8
     m_ActionName: Plateformer2D/MoveInput[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -1005,6 +1016,21 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 17229e7a-4b50-4d4b-be74-c01602b2c76c
     m_ActionName: Plateformer2D/CancelInputStop[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 898116858}
+        m_MethodName: HandleJumpInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9c14e549-94c4-4e97-9f99-3f4ff648151b
+    m_ActionName: Plateformer2D/JumpInput[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Plateformer2D
@@ -1097,6 +1123,9 @@ GameObject:
   - component: {fileID: 898116855}
   - component: {fileID: 898116854}
   - component: {fileID: 898116853}
+  - component: {fileID: 898116857}
+  - component: {fileID: 898116859}
+  - component: {fileID: 898116858}
   m_Layer: 0
   m_Name: Nysa
   m_TagString: Untagged
@@ -1202,12 +1231,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5e4c9b4b8b17174a5ce851e3790393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parameters:
-    speed: 280
-    direction: 0
-  IsRotating: 1
-  AnimatorParameterName: Movement
-  AnimatorAbsoluteValue: 1
+  Parameter:
+    Speed: 280
+    Direction: 0
+  Feature:
+    IsTurningAround: 1
+    IsFrozen: 0
+  Animation:
+    FloatParameterName: Movement
+    IsAbsolute: 1
+  Event:
+    OnMove:
+      m_PersistentCalls:
+        m_Calls: []
+    OnStop:
+      m_PersistentCalls:
+        m_Calls: []
+    OnTurnAround:
+      m_PersistentCalls:
+        m_Calls: []
+    OnBeforeMoving:
+      m_PersistentCalls:
+        m_Calls: []
+    OnAfterMoving:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!70 &898116854
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1276,6 +1324,106 @@ MonoBehaviour:
   m_DefaultActionMap: Plateformer2D
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &898116857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898116849}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1720c605fea90d7f1a8a64966b4904fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parameter:
+    Speed: 400
+    SmoothTime: 0.3
+    Direction: 0
+  Feature:
+    IsTurningAround: 1
+    IsFrozen: 0
+  Animation:
+    FloatParameterName: Movement
+    IsAbsolute: 1
+  Event:
+    OnMove:
+      m_PersistentCalls:
+        m_Calls: []
+    OnStop:
+      m_PersistentCalls:
+        m_Calls: []
+    OnTurnAround:
+      m_PersistentCalls:
+        m_Calls: []
+    OnBeforeMoving:
+      m_PersistentCalls:
+        m_Calls: []
+    OnAfterMoving:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &898116858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898116849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75a874f68d9b91cb827f9cadbe3ecc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parameter:
+    Force: 18
+    FallingModifier: 0.05
+    RaycastLength: 1.51
+    WhatIsGround:
+      serializedVersion: 2
+      m_Bits: 512
+    IsOnAir: 0
+    IsFalling: 0
+    IsRequested: 0
+    IsHolding: 0
+  Animation:
+    velocityFloatName: VerticalMovement
+    JumpTriggerName: Jump
+    IsOnTheAirBoolName: Jumping
+    FallTriggerName: Fall
+    FallingBoolName: Falling
+    SyncVelocity: 1
+    TriggerJump: 1
+    TriggerFall: 1
+    CheckIsOnTheAir: 1
+    CheckFalling: 1
+  Event:
+    OnJump:
+      m_PersistentCalls:
+        m_Calls: []
+    OnLand:
+      m_PersistentCalls:
+        m_Calls: []
+    OnFall:
+      m_PersistentCalls:
+        m_Calls: []
+    OnBeforeJumping:
+      m_PersistentCalls:
+        m_Calls: []
+    OnAfterJumping:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &898116859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898116849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e978ba378bfad4fb888672540df5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1130442711
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,14 +28,6 @@ namespace Djeg.Prometheus.Data.Motion.Move
         }
 
         /// <summary>
-        /// Dispatched when the object turn around
-        /// </summary>
-        [System.Serializable]
-        public sealed class OnTurnAroundEvent : UnityEvent
-        {
-        }
-
-        /// <summary>
         /// Dispatched right before the movement is applying it's velocity
         /// </summary>
         [System.Serializable]
@@ -64,11 +56,6 @@ namespace Djeg.Prometheus.Data.Motion.Move
         /// When the object stop moving
         /// </summary>
         public OnStopEvent OnStop = new OnStopEvent();
-
-        /// <summary>
-        /// When the object turn around
-        /// </summary>
-        public OnTurnAroundEvent OnTurnAround = new OnTurnAroundEvent();
 
         /// <summary>
         /// Right before applying the move velocity
