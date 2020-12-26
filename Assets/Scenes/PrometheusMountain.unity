@@ -998,6 +998,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 898116860}
+        m_MethodName: UpdateDirectionFromInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 93f884e3-40f2-4314-b224-ebcf3d255eb8
     m_ActionName: Plateformer2D/MoveInput[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -1029,8 +1040,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 898116860}
+        m_MethodName: UpdateJumpRequestFromInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9c14e549-94c4-4e97-9f99-3f4ff648151b
     m_ActionName: Plateformer2D/JumpInput[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 898116860}
+        m_MethodName: UpdateFallRequestFromInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ea4aeda2-c9d7-4150-8eba-7070661af707
+    m_ActionName: Plateformer2D/CancelInput[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Plateformer2D
@@ -1126,6 +1163,7 @@ GameObject:
   - component: {fileID: 898116857}
   - component: {fileID: 898116859}
   - component: {fileID: 898116858}
+  - component: {fileID: 898116860}
   m_Layer: 0
   m_Name: Nysa
   m_TagString: Untagged
@@ -1235,7 +1273,6 @@ MonoBehaviour:
     Speed: 280
     Direction: 0
   Feature:
-    IsTurningAround: 1
     IsFrozen: 0
   Animation:
     FloatParameterName: Movement
@@ -1245,9 +1282,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     OnStop:
-      m_PersistentCalls:
-        m_Calls: []
-    OnTurnAround:
       m_PersistentCalls:
         m_Calls: []
     OnBeforeMoving:
@@ -1341,7 +1375,6 @@ MonoBehaviour:
     SmoothTime: 0.3
     Direction: 0
   Feature:
-    IsTurningAround: 1
     IsFrozen: 0
   Animation:
     FloatParameterName: Movement
@@ -1351,9 +1384,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     OnStop:
-      m_PersistentCalls:
-        m_Calls: []
-    OnTurnAround:
       m_PersistentCalls:
         m_Calls: []
     OnBeforeMoving:
@@ -1424,6 +1454,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e978ba378bfad4fb888672540df5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitialDirection: 1
+  Event:
+    OnTurnAround:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &898116860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898116849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db04e1da3ee3c6fbdbd7d23762891fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parameter:
+    Intensity: 0.2
+    DragJumpForceX: 10
+    DragJumpForceY: 18
+    DragReleaseForceX: 5
+    DragReleaseForceY: -2
+    DragUpCollider: {fileID: 1693575882}
+    DragDownCollider: {fileID: 1471840505}
+    WhatIsWall:
+      serializedVersion: 2
+      m_Bits: 512
+    Direction: 0
+    IsDraging: 0
+    IsRequestingJump: 0
+    IsRequestingFall: 0
+    DebugColor: {r: 0, g: 1, b: 1, a: 1}
+  Animation:
+    DragingBoolName: Draging
+    DragJumpTriggerName: DragJump
+    DragTriggerName: Drag
+  Event:
+    OnDragStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDragEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDragJump:
+      m_PersistentCalls:
+        m_Calls: []
+    OnDragRelease:
+      m_PersistentCalls:
+        m_Calls: []
+    OnBeforeDraging:
+      m_PersistentCalls:
+        m_Calls: []
+    OnAfterDraging:
+      m_PersistentCalls:
+        m_Calls: []
+  _animator: {fileID: 0}
 --- !u!1 &1130442711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,7 +1870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471840505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.336, y: -1.131, z: 0}
+  m_LocalPosition: {x: 0.374, y: -1.131, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 578911304}
@@ -2010,7 +2097,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693575882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.324, y: 0.025, z: 0}
+  m_LocalPosition: {x: 0.356, y: 0.025, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 578911304}

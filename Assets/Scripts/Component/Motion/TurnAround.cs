@@ -16,6 +16,11 @@ namespace Djeg.Prometheus.Component.Motion
         # region PublicAttributes
 
         /// <summary>
+        /// The initial direction
+        /// </summary>
+        public float InitialDirection = 1;
+
+        /// <summary>
         /// The EVent
         /// </summary>
         public Data.Motion.TurnAround.Event Event = new Data.Motion.TurnAround.Event();
@@ -34,6 +39,11 @@ namespace Djeg.Prometheus.Component.Motion
         /// </summary>
         private float _difference = 0f;
 
+        /// <summary>
+        /// A bool to detect if the direction has been initialized or not
+        /// </summary>
+        private bool _hasBeenInitialized = false;
+
         # endregion
 
         # region PropertyAccessors
@@ -48,6 +58,7 @@ namespace Djeg.Prometheus.Component.Motion
         {
             _previousPosition = transform.position.x;
             _difference = 0f;
+            _hasBeenInitialized = false;
         }
 
         /// <summary>
@@ -60,13 +71,19 @@ namespace Djeg.Prometheus.Component.Motion
             if (difference >= -0.05f && difference <= 0.05f)
                 return;
 
-            if (
-                (difference < 0 && _difference > 0)
-                || (difference > 0 && _difference < 0)
-            ) {
-                Event.OnTurnAround.Invoke();
+            if (_hasBeenInitialized && (
+                (difference < 0 && _difference >= 0)
+                || (difference > 0 && _difference <= 0)
+            ))
+                TurnAroundObject();
 
-                transform.Rotate(0f, 180f, 0f);
+            if (!_hasBeenInitialized && (
+                (InitialDirection == 1 && difference < 0 && _difference >= 0)
+                || (InitialDirection == -1 && difference > 0 && _difference <= 0)
+            )) {
+                TurnAroundObject();
+
+                _hasBeenInitialized = true;
             }
 
             _difference = difference;
@@ -76,6 +93,17 @@ namespace Djeg.Prometheus.Component.Motion
         # endregion
 
         # region PrivateMethods
+
+        /// <summary>
+        /// Rotate
+        /// </summary>
+        public void TurnAroundObject()
+        {
+            Event.OnTurnAround.Invoke();
+
+            transform.Rotate(0f, 180f, 0f);
+        }
+
         # endregion
     }
 }
